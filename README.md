@@ -24,7 +24,6 @@ This project exposes a REST API for job records and includes a standalone ingest
 - Idempotent ingestion logic (skip duplicates by title + company)
 
 ## Project Structure
-
 ```text
 job-board-pipeline/
 ├─ app/
@@ -40,45 +39,58 @@ job-board-pipeline/
 ├─ requirements.txt
 ├─ .dockerignore
 └─ README.md
-
-API Endpoints
+```
+## API Endpoints
 POST /jobs
 Create a job record.
 
 Example request body:
-
+```
 {
   "title": "Backend Engineer",
   "company": "Acme",
   "description": "Build ETL services"
 }
-GET /jobs
+```
+
+`GET /jobs`
 Return all jobs ordered by newest first.
 
-Run Locally (without Docker)
+# Run Locally (without Docker)
+```
 python -m venv .venv
+
 # Windows
+
 .venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
+```
+
 Open:
 
 Swagger UI: http://127.0.0.1:8000/docs
 ReDoc: http://127.0.0.1:8000/redoc
-Run with Docker (API + Postgres)
-docker compose up --build
+
+## Run with Docker (API + Postgres)
+`docker compose up --build`
+
 API docs:
 
 http://127.0.0.1:8000/docs
-Run Scraper Pipeline
-Local Python environment
-python scraper.py
-Inside Docker API container
-docker compose exec api python scraper.py
-Expected output:
 
-Inserted X jobs, skipped Y duplicates.
-Environment Variables
+##Run Scraper Pipeline
+
+Local Python environment
+`python scraper.py`
+
+Inside Docker API container
+`docker compose exec api python scraper.py`
+
+Expected output:
+`Inserted X jobs, skipped Y duplicates.`
+
+##Environment Variables
 app/db.py uses:
 
 DATABASE_URL (optional)
