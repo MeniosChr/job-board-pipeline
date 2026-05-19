@@ -72,7 +72,7 @@ Open:
 Swagger UI: http://127.0.0.1:8000/docs
 ReDoc: http://127.0.0.1:8000/redoc
 
-## Run with Docker (API + Postgres)
+# Run with Docker (API + Postgres)
 `docker compose up --build`
 
 API docs:
@@ -90,7 +90,7 @@ Inside Docker API container
 Expected output:
 `Inserted X jobs, skipped Y duplicates.`
 
-##Environment Variables
+## Environment Variables
 app/db.py uses:
 
 DATABASE_URL (optional)
