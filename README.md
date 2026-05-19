@@ -89,16 +89,3 @@ Inside Docker API container
 
 Expected output:
 `Inserted X jobs, skipped Y duplicates.`
-
-## Environment Variables
-app/db.py uses:
-
-DATABASE_URL (optional)
-default: sqlite:///./jobs.db
-docker-compose sets: postgresql+psycopg2://jobuser:jobpass@db:5432/jobsdb
-
-Then commit:
-```bash
-git add README.md
-git commit -m "Polish README markdown formatting"
-git push
